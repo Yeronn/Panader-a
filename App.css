@@ -1,0 +1,149 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html{
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+/* .header {
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+} */
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 500px;
+  margin: auto;
+  background-color: #ffff;
+  list-style-type: none;
+}
+
+.logo {
+  width: 100%;
+}
+
+svg {
+  width: 100%;
+}
+
+.navbar > .logo-container {
+  width: 180px;
+}
+
+.navbar > li {
+  width: 25px;
+}
+
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  margin-top: 20px;
+}
+
+.main-image-container {
+  display: flex;
+  justify-content: center;
+  max-width: 500px;
+  margin: auto;
+}
+
+.main-image-container > img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.novelty-container {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  gap: 10px;
+}
+
+.news-carousel {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  text-align: center;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.news-carousel > li {
+  scroll-snap-align: center;
+}
+
+.news-carousel > li > figure {
+  min-width: 200px;
+}
+
+.news-carousel img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+
+
+.featured-products {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  flex-wrap: wrap;
+  gap: 30px 10px;
+}
+
+.featured-products > article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.featured-products > article > button {
+  width: 100px;
+  height: 25px;
+  background-color: #ffdf6d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.featured-products > article > figure {
+  width: 177px;
+  height: 200px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.featured-products > article > figure:hover {
+  transform: scale(1.1);
+}
+
+.featured-products > article > figure > img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+
+.featured-products > article > figure > figcation {
+  margin-top: auto;
+}
