@@ -1,15 +1,15 @@
 import './App.css'
-import { CartIcon, MenuIcon, SearchIcon, UserIcon } from './components/icons'
+import { CartIcon, FacebookIcon, InstagramIcon, MenuIcon, PlusIcon } from './components/icons'
 export default function App () {
   return (
     <>
       <header className='header'>
         <ul className='navbar'>
           <li><MenuIcon /></li>
-          <li><SearchIcon /></li>
+          {/* <li><SearchIcon /></li> */}
           <li className='logo-container'><img className='logo' src='https://panaderiaartesano1990.com/wp-content/uploads/2023/02/Diseno-sin-titulo-PhotoRoom.png-PhotoRoom.png' alt='Logo de la panadería' /></li>
-          <li><UserIcon /></li>
-          <li><CartIcon /></li>
+          {/* <li><UserIcon /></li> */}
+          <li className='cart'><CartIcon /></li>
         </ul>
       </header>
 
@@ -17,8 +17,8 @@ export default function App () {
         <figure className='main-image-container'>
           <img src='https://politecnicocundinamarca.edu.co/wp-content/uploads/2018/01/hombre-barbudo-joven-casquillo-blanco-que-coloca-panaderia.jpg' alt='Imagen principal de panaderia' />
         </figure>
-        <h3>Novedad</h3>
         <section className='novelty-container'>
+          <h3>Novedad</h3>
           <ul className='news-carousel'>
             <li>
               <figure>
@@ -76,15 +76,24 @@ export default function App () {
       <footer className='footer'>
         <h2>Sobre nosotros</h2>
         <p>En Artesano encontrarás productos de altacalidad nutricional, 100% naturales, sinconservantes, sin aditivos químicos y libresde azúcar. Creemos con el corazón que todo lo que hacemos no solo brinda sabor y felicidad, sino también salud.</p>
-        <hr />
-        <p>Ayuda <span>+</span></p>
-        <hr />
-        <p>Contacto <span>+</span></p>
-        <hr />
-        <div className='social-media'>
-          <span>Instagram</span>
-          <span>Facebook</span>
-        </div>
+        <section className='footer--section'>
+          <hr />
+          <p>Ayuda <span><PlusIcon /></span></p>
+        </section>
+        <section className='footer--section'>
+          <hr />
+          <p>Contacto <span><PlusIcon /></span></p>
+        </section>
+        <section className='social-media'>
+          <a href='#'><FacebookIcon /></a>
+          <a href='#'><InstagramIcon /></a>
+        </section>
+        <section className='legal-warning'>
+          <span>Términos y condiciones </span>
+          <span>Aviso legal </span>
+          <span>Políticas de privacidad </span>
+          <span>Protección de datos</span>
+        </section>
       </footer>
     </>
   )
