@@ -1,0 +1,41 @@
+/* .header {
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+} */
+
+.header { 
+  padding-bottom: 20px;
+}
+
+.header-content {
+  background-color: #dda15e;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px 0 0 0;
+  list-style-type: none;
+}
+
+.navbar > .logo-container {
+  width: 300px;
+  text-align: center;
+}
+
+.logo {
+  width: 100%;
+}
+
+.navbar > li {
+  width: 30px;
+}
+
+.navbar > li > svg {
+  cursor: pointer;
+}
