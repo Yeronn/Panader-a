@@ -1,29 +1,27 @@
-import { useState } from 'react'
 import './App.css'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import Main from './components/Main'
-import Menu from './components/Menu'
-import Cart from './components/Cart'
+import Footer from './src/components/Footer'
+import Header from './src/components/Header'
+import Main from './src/components/Main'
+import Menu from './src/components/Menu'
+import Cart from './src/components/Cart'
+import { products } from './src/mocks/products.json'
+import { useInterface } from './src/hooks/useInterface'
 export default function App () {
-  const [showMenu, setShowMenu] = useState(false)
-  const [showCart, setShowCart] = useState(false)
+  const { showMenu, hanldeShowMenu, showCart, hanldeShowCart } = useInterface()
 
-  const hanldeShowMenu = () => {
-    setShowCart(false)
-    setShowMenu(!showMenu)
+  const searchMostSelledProducts = (products, quantityProducts) => {
+    const productsInStockAndSold = products.filter(product => product.stock > 0 && product.sold > 0)
+    const sortedArraybySold = productsInStockAndSold.sort((a, b) => b.sold - a.sold)
+    const mostSelledProducts = sortedArraybySold.slice(0, quantityProducts)
+    return mostSelledProducts
   }
-
-  const hanldeShowCart = () => {
-    setShowMenu(false)
-    setShowCart(!showCart)
-  }
+  const mostSelledProducts = searchMostSelledProducts(products, 4)
   return (
     <>
       <Header hanldeShowMenu={hanldeShowMenu} hanldeShowCart={hanldeShowCart} />
       {showMenu && <Menu hanldeShowMenu={hanldeShowMenu} />}
-      {showCart && <Cart />}
-      {!showCart && <Main />}
+      {showCart && <Cart products={products} />}
+      {!showCart && <Main mostSelledProducts={mostSelledProducts} />}
       <Footer />
     </>
   )

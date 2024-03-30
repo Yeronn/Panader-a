@@ -1,0 +1,92 @@
+{
+  "products" : [
+    {
+      "id": 1,
+      "name": "Pan de Centeno",
+      "price": 2.5,
+      "stock": 10,
+      "description": "Delicioso pan de centeno",
+      "imgURL": "https://images.pexels.com/photos/13019131/pexels-photo-13019131.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "season": "panaderia",
+      "category": "pan",
+      "sold": 4
+    },
+    {
+      "id": 2,
+      "name": "Tarta de Manzana",
+      "price": 3.75,
+      "stock": 15,
+      "description": "Exquisita tarta de manzana",
+      "imgURL": "https://images.pexels.com/photos/18403953/pexels-photo-18403953/free-photo-of-pan-comida-madera-cena.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "season": "panaderia",
+      "category": "postre",
+      "sold": 0
+    },
+    {
+      "id": 3,
+      "name": "Croissant de Chocolate",
+      "price": 2,
+      "stock": 20,
+      "description": "Croissant relleno de chocolate",
+      "imgURL": "https://images.pexels.com/photos/4828307/pexels-photo-4828307.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "season": "panaderia",
+      "category": "pan",
+      "sold": 6
+    },
+    {
+      "id": 4,
+      "name": "Pastel de Zanahoria",
+      "price": 4,
+      "stock": 12,
+      "description": "Delicioso pastel de zanahoria con crema de queso",
+      "imgURL": "https://images.pexels.com/photos/963755/pexels-photo-963755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "season": "panaderia",
+      "category": "torta",
+      "sold": 0
+    },
+    {
+      "id": 5,
+      "name": "Galletas de Halloween",
+      "price": 1.5,
+      "stock": 30,
+      "description": "Galletas decoradas para Halloween",
+      "imgURL": "https://images.pexels.com/photos/5634612/pexels-photo-5634612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "season": "halloween",
+      "category": "postre",
+      "sold": 3
+    },
+    {
+      "id": 6,
+      "name": "Cupcakes de Halloween",
+      "price": 2,
+      "stock": 25,
+      "description": "Cupcakes con temática de Halloween",
+      "imgURL": "https://images.pexels.com/photos/5633846/pexels-photo-5633846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "season": "halloween",
+      "category": "postre",
+      "sold": 0
+    },
+    {
+      "id": 7,
+      "name": "Brazo de Gitano de Navidad",
+      "price": 3.5,
+      "stock": 18,
+      "description": "Brazo de gitano con motivos navideños",
+      "imgURL": "https://recetasdecocina.elmundo.es/wp-content/uploads/2022/11/receta-de-tronco-de-navidad.jpg",
+      "season": "navidad",
+      "category": "postre",
+      "sold": 5
+    },
+    {
+      "id": 8,
+      "name": "Trufas de Navidad",
+      "price": 2.25,
+      "stock": 22,
+      "description": "Trufas de chocolate para Navidad",
+      "imgURL": "https://www.hv.com.co/blog/wp-content/uploads/2018/04/Trufas-Navidenas.jpg",
+      "season": "navidad",
+      "category": "postre",
+      "sold": 0
+    }
+  ]
+}

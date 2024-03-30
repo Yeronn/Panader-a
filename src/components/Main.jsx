@@ -1,7 +1,7 @@
 import { FeaturedProductsClosingWave, FeaturedProductsOpeningWave, NoveltyContainerClosingWave, NoveltyContainerOpeningWave } from './icons'
 import './main.css'
 
-export default function Main () {
+export default function Main ({ mostSelledProducts }) {
   return (
     <main className='main'>
       <figure className='main-image-container'>
@@ -34,35 +34,18 @@ export default function Main () {
       <NoveltyContainerClosingWave />
       <FeaturedProductsOpeningWave />
       <section className='featured-products'>
-        <h3>Destacados</h3>
-        <article>
-          <figure>
-            <img src='https://www.clara.es/medio/2018/12/13/postres-saludables-crema-vainilla-chocolate-sin-gluten-lactosa-huevo_4b8ca87e_1000x1000.jpg' alt='' />
-            <figcaption>Postre</figcaption>
-          </figure>
-          <button>Comprar</button>
-        </article>
-        <article>
-          <figure>
-            <img src='https://www.cuerpomente.com/medio/2021/02/15/pd-6_d49c03a5_1200x1200.jpg' alt='' />
-            <figcaption>Postre</figcaption>
-          </figure>
-          <button>Comprar</button>
-        </article>
-        <article>
-          <figure>
-            <img src='https://vainillamolina.com/uploads/images/Vainilla-Molina-Postres-Saludables-1.jpg' alt='' />
-            <figcaption>Postre</figcaption>
-          </figure>
-          <button>Comprar</button>
-        </article>
-        <article>
-          <figure>
-            <img src='https://cdn7.kiwilimon.com/ss_secreto/3310/640x640/3310.jpg.webp' alt='' />
-            <figcaption>Postre</figcaption>
-          </figure>
-          <button>Comprar</button>
-        </article>
+        <h3>Productos más vendidos</h3>
+        {
+          mostSelledProducts.map((product) => (
+            <article key={product.id}>
+              <figure>
+                <img src={product.imgURL} alt='' />
+                <figcaption>{product.name}</figcaption>
+              </figure>
+              <button>Comprar</button>
+            </article>
+          ))
+        }
       </section>
       <FeaturedProductsClosingWave />
     </main>
