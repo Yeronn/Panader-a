@@ -21,23 +21,24 @@
   border-radius: 5px;
 }
 
+
+
+
 .novelty-container {
-  display: flex;
   width: 100%;
-  padding: 20px 0 ;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-  gap: 30px;
+  max-width: 600px;
+  text-align: center;
+  padding: 10px;
+  margin: 0 auto;
   background-color: #dda15e;
 }
 
 .news-carousel {
   display: flex;
   width: 100%;
-  max-width: 400px;
   gap: 10px;
-  text-align: center;
+  align-items: center;
+  padding: 30px 5px 20px 5px;
   list-style: none;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -45,36 +46,49 @@
 
 .news-carousel > li {
   scroll-snap-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.news-carousel > li:hover {
+  transform: scale(1.1);
 }
 
 .news-carousel > li > figure {
-  min-width: 200px;
+  max-height: 250px;
 }
 
 .news-carousel img {
-  width: 100%;
+  max-width: 200px;
+  max-height: 180px;
   border-radius: 5px;
 }
 
 
 
+
 .featured-products {
-  display: flex;
-  justify-content: center;
-  width: 100%;
   max-width: 600px;
-  flex-wrap: wrap;
-  gap: 30px 10px;
+  margin: 0 auto;
   padding-top: 40px;
   background-color: #fefae0;
 }
 
 .featured-products > h3 {
   text-align: center;
-  width: 100%;
 }
 
-.featured-products > article {
+.featured-products > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px 10px;
+  padding: 40px 5px;
+  text-decoration: none;
+  list-style: none;
+}
+
+.featured-products li {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,7 +96,7 @@
   transition: transform 0.3s ease;
 }
 
-.featured-products > article > button {
+.featured-products li > button {
   width: 100px;
   height: 25px;
   background-color: #ffdf6d;
@@ -91,27 +105,29 @@
   cursor: pointer;
 }
 
-.featured-products > article > figure {
+.featured-products li > figure {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   width: 166px;
   height: 200px;
   text-align: center;
   cursor: pointer;
 }
 
-.featured-products > article:hover {
+.featured-products li:hover {
   transform: scale(1.1);
 }
 
-.featured-products > article > figure > img {
+.featured-products li > figure > img {
   width: 100%;
+  height: 100%;
   border-radius: 5px;
 }
 
 
-.featured-products > article > figure > figcation {
+.featured-products li > figure > figcation {
   margin-top: auto;
 }

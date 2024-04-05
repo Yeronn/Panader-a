@@ -9,7 +9,8 @@
       "imgURL": "https://images.pexels.com/photos/13019131/pexels-photo-13019131.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "season": "panaderia",
       "category": "pan",
-      "sold": 4
+      "sold": 4,
+      "date": "2024-03-29"
     },
     {
       "id": 2,
@@ -20,7 +21,8 @@
       "imgURL": "https://images.pexels.com/photos/18403953/pexels-photo-18403953/free-photo-of-pan-comida-madera-cena.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "season": "panaderia",
       "category": "postre",
-      "sold": 0
+      "sold": 0,
+      "date": "2024-04-01"
     },
     {
       "id": 3,
@@ -31,7 +33,8 @@
       "imgURL": "https://images.pexels.com/photos/4828307/pexels-photo-4828307.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "season": "panaderia",
       "category": "pan",
-      "sold": 6
+      "sold": 6,
+      "date": "2024-04-02"
     },
     {
       "id": 4,
@@ -42,7 +45,8 @@
       "imgURL": "https://images.pexels.com/photos/963755/pexels-photo-963755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "season": "panaderia",
       "category": "torta",
-      "sold": 0
+      "sold": 0,
+      "date": "2024-04-03"
     },
     {
       "id": 5,
@@ -53,7 +57,8 @@
       "imgURL": "https://images.pexels.com/photos/5634612/pexels-photo-5634612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "season": "halloween",
       "category": "postre",
-      "sold": 3
+      "sold": 3,
+      "date": "2024-04-08"
     },
     {
       "id": 6,
@@ -64,7 +69,8 @@
       "imgURL": "https://images.pexels.com/photos/5633846/pexels-photo-5633846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "season": "halloween",
       "category": "postre",
-      "sold": 0
+      "sold": 0,
+      "date": "2024-04-05"
     },
     {
       "id": 7,
@@ -75,7 +81,8 @@
       "imgURL": "https://recetasdecocina.elmundo.es/wp-content/uploads/2022/11/receta-de-tronco-de-navidad.jpg",
       "season": "navidad",
       "category": "postre",
-      "sold": 5
+      "sold": 5,
+      "date": "2024-04-06"
     },
     {
       "id": 8,
@@ -86,7 +93,8 @@
       "imgURL": "https://www.hv.com.co/blog/wp-content/uploads/2018/04/Trufas-Navidenas.jpg",
       "season": "navidad",
       "category": "postre",
-      "sold": 0
+      "sold": 0,
+      "date": "2024-04-07"
     }
-  ]
+  ]  
 }

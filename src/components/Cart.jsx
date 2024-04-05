@@ -1,5 +1,5 @@
 import './cart.css'
-import ProductCard from './ProductCard'
+import ProductCardInCart from './ProductCardInCart'
 export default function Cart ({ products }) {
   return (
     <div className='cart'>
@@ -8,7 +8,7 @@ export default function Cart ({ products }) {
         {
         products.map((product) => (
           <li key={product.id}>
-            <ProductCard product={product} />
+            <ProductCardInCart product={product} />
           </li>
         ))
         }

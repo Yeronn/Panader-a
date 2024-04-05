@@ -1,7 +1,7 @@
 import { MinusCircleIcon, PlusCircleIcon } from './icons'
 import { useProductCard } from '../hooks/useProductCard'
 
-export default function ProductCard ({ product }) {
+export default function ProductCardInCart ({ product }) {
   const { name, price, stock, description, imgURL } = product
   const { amountProduct, totalProduct, handleCheckAmount, addAmount, subtractAmount } = useProductCard({ price, stock })
   return (
