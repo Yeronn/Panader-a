@@ -81,3 +81,34 @@
   background-color: #ffdf6d;
   border-radius: 5px;
 }
+
+.cart-item--delete {
+  position: absolute;
+  padding: 20px;
+  text-align: center;
+  z-index: 1;
+  background-color: #dda15e;
+  border-radius: 5px;
+}
+
+.cart-item--delete > div {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  gap: 10px;
+}
+
+.cart-item--delete > div > button {
+  width: 50px;
+  padding: 3px;
+  font-size: 1.6rem;
+  background-color: #fffbec;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.cart-item--delete > div > button:hover {
+  opacity: 0.7;
+}

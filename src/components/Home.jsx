@@ -2,7 +2,7 @@ import { FeaturedProductsClosingWave, FeaturedProductsOpeningWave, NoveltyContai
 import './main.css'
 import { filterAndSortProductsByDate, searchMostSelledProducts } from '../logic/products'
 
-export default function Main ({ products }) {
+export default function Home ({ products }) {
   const mostSelledProducts = searchMostSelledProducts({ products, quantityProducts: 4 })
 
   const newestProducts = filterAndSortProductsByDate({ products, quantity: 3 })

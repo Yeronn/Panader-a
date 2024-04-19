@@ -5,7 +5,7 @@ export function useInterface () {
   const [showCart, setShowCart] = useState(false)
 
   const hanldeShowMenu = () => {
-    setShowCart(false)
+    // setShowCart(false)
     setShowMenu(!showMenu)
   }
 

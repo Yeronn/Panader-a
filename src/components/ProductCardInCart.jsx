@@ -1,8 +1,8 @@
 import { MinusCircleIcon, PlusCircleIcon } from './icons'
 import { useProductCard } from '../hooks/useProductCard'
 
-export default function ProductCardInCart ({ product }) {
-  const { name, price, stock, description, imgURL } = product
+export default function ProductCardInCart ({ product, deleteProduct }) {
+  const { id, name, price, stock, description, imgURL } = product
   const { amountProduct, totalProduct, handleCheckAmount, addAmount, subtractAmount } = useProductCard({ price, stock })
   return (
     <article className='cart-item'>
@@ -22,6 +22,14 @@ export default function ProductCardInCart ({ product }) {
         </div>
         <p className='cart-item--total'>Total: $ {totalProduct}</p>
       </div>
+      {(amountProduct <= 0) &&
+        <div className='cart-item--delete'>
+          <p>¿Desea eliminar el producto?</p>
+          <div>
+            <button onClick={() => { deleteProduct(id) }}>Si</button>
+            <button onClick={addAmount}>No</button>
+          </div>
+        </div>}
     </article>
   )
 }
