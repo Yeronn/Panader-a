@@ -1,6 +1,15 @@
+import { NavLink } from 'react-router-dom'
 import { XcircleIcon } from './icons'
 import './menu.css'
 export default function Menu ({ hanldeShowMenu }) {
+  const typeOfProducts = [
+    { id: 1, name: 'Panes', season: false },
+    { id: 2, name: 'Postres', season: false },
+    { id: 3, name: 'Cremas', season: false },
+    { id: 4, name: 'Tortas', season: false },
+    { id: 5, name: 'Navidad', season: true },
+    { id: 6, name: 'Halloween', season: true }
+  ]
   return (
     <section className='menu'>
       <div className='menu-content'>
@@ -10,15 +19,25 @@ export default function Menu ({ hanldeShowMenu }) {
           </span>
         </div>
         <ul>
-          <li><a href='#'>Panes</a></li>
-          <li><a href='#'>Postres</a></li>
-          <li><a href='#'>Cremas</a></li>
-          <li><a href='#'>Tortas</a></li>
+          {
+            typeOfProducts.map(typeProduct =>
+              !typeProduct.season && (
+                <li key={typeProduct.id}>
+                  <NavLink to={`/Products/${typeProduct.name}`}>{typeProduct.name}</NavLink>
+                </li>
+              ))
+          }
         </ul>
         <p>Temporada</p>
         <ul>
-          <li><a href='#'>Navidad</a></li>
-          <li><a href='#'>Halloween</a></li>
+          {
+            typeOfProducts.map(typeProduct =>
+              typeProduct.season && (
+                <li key={typeProduct.id}>
+                  <NavLink to={`/Products/${typeOfProducts.name}`}>{typeProduct.name}</NavLink>
+                </li>
+              ))
+          }
         </ul>
       </div>
     </section>

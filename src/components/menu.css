@@ -46,3 +46,7 @@
 .menu-content a:hover {
   color: #dda15e;
 }
+
+.menu-content a.active {
+  color: #ffdf6d;
+}

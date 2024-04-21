@@ -3,7 +3,7 @@ import './cart.css'
 import ProductCardInCart from './ProductCardInCart'
 export default function Cart ({ products }) {
   const [productsInCart, setProductsInCart] = useState(products)
-  const deleteProduct = (idProductToDelete) => {
+  const deleteProductInCart = (idProductToDelete) => {
     setProductsInCart([...productsInCart.filter(product => product.id !== idProductToDelete)])
   }
   return (
@@ -13,7 +13,7 @@ export default function Cart ({ products }) {
         {
         productsInCart.map((product) => (
           <li key={product.id}>
-            <ProductCardInCart product={product} deleteProduct={deleteProduct} />
+            <ProductCardInCart product={product} deleteProduct={deleteProductInCart} />
           </li>
         ))
         }

@@ -4,10 +4,7 @@ import { filterAndSortProductsByDate, searchMostSelledProducts } from '../logic/
 
 export default function Home ({ products }) {
   const mostSelledProducts = searchMostSelledProducts({ products, quantityProducts: 4 })
-
   const newestProducts = filterAndSortProductsByDate({ products, quantity: 3 })
-
-  console.log(newestProducts)
   return (
     <main className='main'>
       <figure className='main-image-container'>
