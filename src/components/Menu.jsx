@@ -19,6 +19,9 @@ export default function Menu ({ hanldeShowMenu }) {
           </span>
         </div>
         <ul>
+          <li>
+            <NavLink to='/Products'>Todo</NavLink>
+          </li>
           {
             typeOfProducts.map(typeProduct =>
               !typeProduct.season && (

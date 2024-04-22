@@ -1,5 +1,6 @@
 import { CartIcon, HeaderWave, MenuIcon } from './icons'
 import './header.css'
+import { Link } from 'react-router-dom'
 export default function Header ({ hanldeShowMenu, hanldeShowCart }) {
   return (
     <header className='header'>
@@ -7,9 +8,16 @@ export default function Header ({ hanldeShowMenu, hanldeShowCart }) {
         <ul className='navbar'>
           <li onClick={hanldeShowMenu}><MenuIcon /></li>
           {/* <li><SearchIcon /></li> */}
-          <li className='logo-container'><img className='logo' src='https://panaderiaartesano1990.com/wp-content/uploads/2023/02/Diseno-sin-titulo-PhotoRoom.png-PhotoRoom.png' alt='Logo de la panadería' /></li>
+          <li className='logo-container'>
+            <Link to='/'>
+              <img className='logo' src='/logoPanaderia.png' alt='Logo de la panadería' />
+            </Link>
+          </li>
           {/* <li><UserIcon /></li> */}
-          <li onClick={hanldeShowCart}><CartIcon /></li>
+          {/* <li onClick={hanldeShowCart}><CartIcon /></li> */}
+          <li>
+            <Link to='/cart'><CartIcon /></Link>
+          </li>
         </ul>
       </section>
       <HeaderWave />
