@@ -1,0 +1,31 @@
+.news-carousel {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  gap: 10px;
+  align-items: center;
+  padding: 30px 5px 20px 5px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.news-carousel > li {
+  scroll-snap-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.news-carousel > li:hover {
+  transform: scale(1.1);
+}
+
+.news-carousel > li > figure {
+  max-height: 250px;
+}
+
+.news-carousel img {
+  max-width: 200px;
+  max-height: 180px;
+  border-radius: 5px;
+}

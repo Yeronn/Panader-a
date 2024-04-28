@@ -1,0 +1,38 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: 40px; */
+  padding-top: 40px;
+  margin-bottom: 30px;
+}
+
+.main-image-container {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.main-image-container > img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.main > .most-selled-products {
+  background-color: #fefae0;
+}
+
+.new-products-container {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  padding: 10px;
+  margin: 0 auto;
+  background-color: #dda15e;
+}
+
+.main > svg {
+  max-width: 600px;
+}

@@ -7,9 +7,9 @@ import Cart from './src/components/Cart'
 import { products } from './src/mocks/products.json'
 import { useInterface } from './src/hooks/useInterface'
 import { Outlet, Route, Routes } from 'react-router-dom'
-import Catalogue from './src/components/Catalogue'
+import ProductCatalog from './src/components/ProductCatalog'
 export default function App () {
-  const { showMenu, hanldeShowMenu, showCart, hanldeShowCart } = useInterface()
+  const { showMenu, hanldeShowMenu, hanldeShowCart } = useInterface()
 
   return (
     <>
@@ -27,7 +27,7 @@ export default function App () {
         >
           <Route path='/' element={<Home products={products} />} />
           <Route path='/cart' element={<Cart products={products} />} />
-          <Route path='/Products' element={<Catalogue />} />
+          <Route path='/Products' element={<ProductCatalog products={products} />} />
         </Route>
       </Routes>
     </>

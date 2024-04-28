@@ -1,6 +1,8 @@
 import { FeaturedProductsClosingWave, FeaturedProductsOpeningWave, NoveltyContainerClosingWave, NoveltyContainerOpeningWave } from './icons'
-import './main.css'
+import './home.css'
 import { filterAndSortProductsByDate, searchMostSelledProducts } from '../logic/products'
+import ProductCatalog from './ProductCatalog'
+import ProductCarousel from './ProductCarousel'
 
 export default function Home ({ products }) {
   const mostSelledProducts = searchMostSelledProducts({ products, quantityProducts: 4 })
@@ -11,38 +13,14 @@ export default function Home ({ products }) {
         <img src='https://politecnicocundinamarca.edu.co/wp-content/uploads/2018/01/hombre-barbudo-joven-casquillo-blanco-que-coloca-panaderia.jpg' alt='Imagen principal de panaderia' />
       </figure>
       <NoveltyContainerOpeningWave />
-      <section className='novelty-container'>
+      <section className='new-products-container'>
         <h3>Novedad</h3>
-        <ul className='news-carousel'>
-          {
-            newestProducts.map(product => (
-              <li key={product.id}>
-                <figure>
-                  <img src={product.imgURL} alt={product.name} />
-                  <figcaption>{product.name}</figcaption>
-                </figure>
-              </li>
-            ))
-          }
-        </ul>
+        <ProductCarousel products={newestProducts} />
       </section>
       <NoveltyContainerClosingWave />
       <FeaturedProductsOpeningWave />
-      <section className='featured-products'>
-        <h3>Productos más vendidos</h3>
-        <ul>
-          {
-            mostSelledProducts.map((product) => (
-              <li key={product.id}>
-                <figure>
-                  <img src={product.imgURL} alt='' />
-                  <figcaption>{product.name}</figcaption>
-                </figure>
-                <button>Comprar</button>
-              </li>
-            ))
-          }
-        </ul>
+      <section className='most-selled-products'>
+        <ProductCatalog catalogTitle='Productos más vendidos' products={mostSelledProducts} />
       </section>
       <FeaturedProductsClosingWave />
     </main>

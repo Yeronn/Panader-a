@@ -1,0 +1,58 @@
+.product-catalog > h3 {
+  text-align: center;
+}
+.product-catalog > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 5px;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 30px 10px;
+  text-decoration: none;
+  list-style: none;
+}
+
+.product-catalog li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  transition: transform 0.3s ease;
+}
+
+.product-catalog li > button {
+  width: 100px;
+  height: 25px;
+  background-color: #ffdf6d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-catalog li > figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 166px;
+  height: 200px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.product-catalog li:hover {
+  transform: scale(1.1);
+}
+
+.product-catalog li > figure > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+
+.product-catalog li > figure > figcation {
+  margin-top: auto;
+}
