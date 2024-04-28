@@ -28,6 +28,7 @@ export default function App () {
           <Route path='/' element={<Home products={products} />} />
           <Route path='/cart' element={<Cart products={products} />} />
           <Route path='/Products' element={<ProductCatalog products={products} />} />
+          <Route path='/Products/:typeProducts' element={<ProductCatalog products={products} />} />
         </Route>
       </Routes>
     </>
