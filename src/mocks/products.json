@@ -2,13 +2,13 @@
   "products" : [
     {
       "id": 1,
-      "name": "Pan de Centeno",
+      "name": "Panes de Centeno",
       "price": 2.5,
       "stock": 10,
-      "description": "Delicioso pan de centeno",
+      "description": "Delicioso Panes de centeno",
       "imgURL": "https://images.pexels.com/photos/13019131/pexels-photo-13019131.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "season": "panaderia",
-      "category": "pan",
+      "category": "Panes",
       "sold": 4,
       "date": "2024-03-29"
     },
@@ -18,9 +18,9 @@
       "price": 3.75,
       "stock": 15,
       "description": "Exquisita tarta de manzana",
-      "imgURL": "https://images.pexels.com/photos/18403953/pexels-photo-18403953/free-photo-of-pan-comida-madera-cena.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "imgURL": "https://images.pexels.com/photos/18403953/pexels-photo-18403953/free-photo-of-Panes-comida-madera-cena.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "season": "panaderia",
-      "category": "postre",
+      "category": "Postres",
       "sold": 0,
       "date": "2024-04-01"
     },
@@ -32,7 +32,7 @@
       "description": "Croissant relleno de chocolate",
       "imgURL": "https://images.pexels.com/photos/4828307/pexels-photo-4828307.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "season": "panaderia",
-      "category": "pan",
+      "category": "Panes",
       "sold": 6,
       "date": "2024-04-02"
     },
@@ -44,7 +44,7 @@
       "description": "Delicioso pastel de zanahoria con crema de queso",
       "imgURL": "https://images.pexels.com/photos/963755/pexels-photo-963755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "season": "panaderia",
-      "category": "torta",
+      "category": "Tortas",
       "sold": 0,
       "date": "2024-04-03"
     },
@@ -55,8 +55,8 @@
       "stock": 30,
       "description": "Galletas decoradas para Halloween",
       "imgURL": "https://images.pexels.com/photos/5634612/pexels-photo-5634612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "season": "halloween",
-      "category": "postre",
+      "season": "Halloween",
+      "category": "Postres",
       "sold": 3,
       "date": "2024-04-08"
     },
@@ -67,8 +67,8 @@
       "stock": 25,
       "description": "Cupcakes con temática de Halloween",
       "imgURL": "https://images.pexels.com/photos/5633846/pexels-photo-5633846.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "season": "halloween",
-      "category": "postre",
+      "season": "Halloween",
+      "category": "Postres",
       "sold": 0,
       "date": "2024-04-05"
     },
@@ -78,9 +78,9 @@
       "price": 3.5,
       "stock": 18,
       "description": "Brazo de gitano con motivos navideños",
-      "imgURL": "https://recetasdecocina.elmundo.es/wp-content/uploads/2022/11/receta-de-tronco-de-navidad.jpg",
-      "season": "navidad",
-      "category": "postre",
+      "imgURL": "https://i.ytimg.com/vi/ALPDPU8BRy4/maxresdefault.jpg",
+      "season": "Navidad",
+      "category": "Postres",
       "sold": 5,
       "date": "2024-04-06"
     },
@@ -91,8 +91,8 @@
       "stock": 22,
       "description": "Trufas de chocolate para Navidad",
       "imgURL": "https://www.hv.com.co/blog/wp-content/uploads/2018/04/Trufas-Navidenas.jpg",
-      "season": "navidad",
-      "category": "postre",
+      "season": "Navidad",
+      "category": "Postres",
       "sold": 0,
       "date": "2024-04-07"
     }

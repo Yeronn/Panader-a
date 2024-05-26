@@ -4,14 +4,14 @@ export function useInterface () {
   const [showMenu, setShowMenu] = useState(false)
   const [showCart, setShowCart] = useState(false)
 
-  const hanldeShowMenu = () => {
-    // setShowCart(false)
+  const hanldeShowMenu = (closeMenu = false) => {
+    if (!closeMenu) setShowCart(false)
     setShowMenu(!showMenu)
   }
 
-  const hanldeShowCart = () => {
+  const hanldeShowCart = (appearCart = !showCart) => {
     setShowMenu(false)
-    setShowCart(!showCart)
+    setShowCart(appearCart)
   }
 
   return {

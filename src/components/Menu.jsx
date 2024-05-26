@@ -14,18 +14,18 @@ export default function Menu ({ hanldeShowMenu }) {
     <section className='menu'>
       <div className='menu-content'>
         <div>
-          <span onClick={hanldeShowMenu}>
+          <span onClick={() => hanldeShowMenu(true)}>
             <XcircleIcon />
           </span>
         </div>
         <ul>
-          <li>
-            <NavLink to='/Products'>Todo</NavLink>
+          <li onClick={() => hanldeShowMenu()}>
+            <NavLink to='/Products' end>Todo</NavLink>
           </li>
           {
             typeOfProducts.map(typeProduct =>
               !typeProduct.season && (
-                <li key={typeProduct.id}>
+                <li key={typeProduct.id} onClick={() => hanldeShowMenu()}>
                   <NavLink to={`/Products/${typeProduct.name}`}>{typeProduct.name}</NavLink>
                 </li>
               ))
@@ -36,8 +36,8 @@ export default function Menu ({ hanldeShowMenu }) {
           {
             typeOfProducts.map(typeProduct =>
               typeProduct.season && (
-                <li key={typeProduct.id}>
-                  <NavLink to={`/Products/${typeOfProducts.name}`}>{typeProduct.name}</NavLink>
+                <li key={typeProduct.id} onClick={() => hanldeShowMenu()}>
+                  <NavLink to={`/Products/${typeProduct.name}`}>{typeProduct.name}</NavLink>
                 </li>
               ))
           }

@@ -8,25 +8,25 @@ import { products } from './src/mocks/products.json'
 import { useInterface } from './src/hooks/useInterface'
 import { Outlet, Route, Routes } from 'react-router-dom'
 import ProductCatalog from './src/components/ProductCatalog'
+
 export default function App () {
-  const { showMenu, hanldeShowMenu, hanldeShowCart } = useInterface()
+  const { showMenu, hanldeShowMenu, hanldeShowCart, showCart } = useInterface()
 
   return (
     <>
-      {/* {showMenu && <Menu hanldeShowMenu={hanldeShowMenu} />} */}
       <Routes>
         <Route
           element={
             <>
               <Header hanldeShowMenu={hanldeShowMenu} hanldeShowCart={hanldeShowCart} />
               {showMenu && <Menu hanldeShowMenu={hanldeShowMenu} />}
-              <Outlet />
+              {showCart && <Cart products={products} />}
+              {!showCart && <Outlet />}
               <Footer />
             </>
           }
         >
           <Route path='/' element={<Home products={products} />} />
-          <Route path='/cart' element={<Cart products={products} />} />
           <Route path='/Products' element={<ProductCatalog products={products} />} />
           <Route path='/Products/:typeProducts' element={<ProductCatalog products={products} />} />
         </Route>

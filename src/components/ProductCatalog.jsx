@@ -1,12 +1,14 @@
 import { useParams } from 'react-router-dom'
 import './productCatalog.css'
-export default function ProductCatalog ({ catalogTitle, products }) {
+import productsServices from '../services/productsServices'
+
+export default function ProductCatalog ({ catalogTitle, specialProducts }) {
   const { typeProducts } = useParams()
   const title = catalogTitle ?? typeProducts ?? 'Todo'
-  // TODO:Hacer funcion que extraiga solos los productos que el parametro indique
-  // Anotaciones: creo que toca quitar el products por prop, entonces para el catalogo
-  //              del home, es decir de los prodcutos mas vendidos, se puede hacer que
-  //              cuando esté en la direccion raíz extraiga los mas vendidos
+  let products = specialProducts ?? productsServices.getProductByCategory(title)
+  if (products.length < 1) {
+    products = productsServices.getProductBySeason(title)
+  }
   return (
     <div className='product-catalog'>
       <h3>{title}</h3>

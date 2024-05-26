@@ -6,18 +6,15 @@ export default function Header ({ hanldeShowMenu, hanldeShowCart }) {
     <header className='header'>
       <section className='header-content'>
         <ul className='navbar'>
-          <li onClick={hanldeShowMenu}><MenuIcon /></li>
+          <li onClick={() => hanldeShowMenu(true)}><MenuIcon /></li>
           {/* <li><SearchIcon /></li> */}
-          <li className='logo-container'>
+          <li className='logo-container' onClick={() => hanldeShowCart(false)}>
             <Link to='/'>
               <img className='logo' src='/logoPanaderia.png' alt='Logo de la panadería' />
             </Link>
           </li>
           {/* <li><UserIcon /></li> */}
-          {/* <li onClick={hanldeShowCart}><CartIcon /></li> */}
-          <li>
-            <Link to='/cart'><CartIcon /></Link>
-          </li>
+          <li onClick={() => hanldeShowCart()}><CartIcon /></li>
         </ul>
       </section>
       <HeaderWave />
