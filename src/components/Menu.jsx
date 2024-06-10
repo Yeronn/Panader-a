@@ -3,12 +3,13 @@ import { XcircleIcon } from './icons'
 import './menu.css'
 export default function Menu ({ hanldeShowMenu }) {
   const typeOfProducts = [
-    { id: 1, name: 'Panes', season: false },
-    { id: 2, name: 'Postres', season: false },
-    { id: 3, name: 'Cremas', season: false },
-    { id: 4, name: 'Tortas', season: false },
-    { id: 5, name: 'Navidad', season: true },
-    { id: 6, name: 'Halloween', season: true }
+    { id: 1, section: 'all', name: 'Todo', season: false },
+    { id: 2, section: 'bread', name: 'Panes', season: false },
+    { id: 3, section: 'dessert', name: 'Postres', season: false },
+    { id: 4, section: 'cream', name: 'Cremas', season: false },
+    { id: 5, section: 'cake', name: 'Tortas', season: false },
+    { id: 6, section: 'christmas', name: 'Navidad', season: true },
+    { id: 7, section: 'halloween', name: 'Halloween', season: true }
   ]
   return (
     <section className='menu'>
@@ -19,14 +20,11 @@ export default function Menu ({ hanldeShowMenu }) {
           </span>
         </div>
         <ul>
-          <li onClick={() => hanldeShowMenu()}>
-            <NavLink to='/Products' end>Todo</NavLink>
-          </li>
           {
             typeOfProducts.map(typeProduct =>
               !typeProduct.season && (
                 <li key={typeProduct.id} onClick={() => hanldeShowMenu()}>
-                  <NavLink to={`/Products/${typeProduct.name}`}>{typeProduct.name}</NavLink>
+                  <NavLink to={`/productos/${typeProduct.name}`} state={{ sectionName: typeProduct.section }}>{typeProduct.name}</NavLink>
                 </li>
               ))
           }
@@ -37,7 +35,7 @@ export default function Menu ({ hanldeShowMenu }) {
             typeOfProducts.map(typeProduct =>
               typeProduct.season && (
                 <li key={typeProduct.id} onClick={() => hanldeShowMenu()}>
-                  <NavLink to={`/Products/${typeProduct.name}`}>{typeProduct.name}</NavLink>
+                  <NavLink to={`/productos/${typeProduct.name}`} state={{ sectionName: typeProduct.section }}>{typeProduct.name}</NavLink>
                 </li>
               ))
           }

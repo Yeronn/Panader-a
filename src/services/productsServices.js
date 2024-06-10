@@ -1,8 +1,8 @@
 import { products } from '../mocks/products.json'
 
 const getProductByCategory = (category) => {
-  const productsByCategory = products.filter((product) => product.category === category || category === 'Todo')
-  return productsByCategory
+  const productsByCategory = products.filter((product) => product.category === category || category === 'all')
+  return productsByCategory.length > 0 ? productsByCategory : undefined
 }
 
 const getProductBySeason = (season) => {
@@ -10,7 +10,13 @@ const getProductBySeason = (season) => {
   return productsBySeason
 }
 
+const getProductsCategories = () => {
+  const categories = products.map(({ category }) => category)
+  return [...new Set(categories)]
+}
+
 export default {
   getProductByCategory,
-  getProductBySeason
+  getProductBySeason,
+  getProductsCategories
 }

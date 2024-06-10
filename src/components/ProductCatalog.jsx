@@ -1,14 +1,12 @@
-import { useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import './productCatalog.css'
 import productsServices from '../services/productsServices'
 
 export default function ProductCatalog ({ catalogTitle, specialProducts }) {
-  const { typeProducts } = useParams()
-  const title = catalogTitle ?? typeProducts ?? 'Todo'
-  let products = specialProducts ?? productsServices.getProductByCategory(title)
-  if (products.length < 1) {
-    products = productsServices.getProductBySeason(title)
-  }
+  const { state } = useLocation()
+  const title = catalogTitle ?? state.sectionName
+  const products = specialProducts ?? productsServices.getProductByCategory(title) ?? productsServices.getProductBySeason(title)
+
   return (
     <div className='product-catalog'>
       <h3>{title}</h3>

@@ -1,0 +1,29 @@
+.seasonal-section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 30px;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.filter-container > .filter{
+  width: 80px;
+  height: 39px;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+  }
+  
+.filter-container > .inactiveFilter {
+  background-color: rgb(255, 223, 109, 0.63);
+}
+
+.filter-container > .activeFilter {
+  color: white;
+  background-color: rgb(69, 49, 19);
+}

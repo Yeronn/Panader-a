@@ -9,6 +9,7 @@ import { useInterface } from './src/hooks/useInterface'
 import { Outlet, Route, Routes } from 'react-router-dom'
 import ProductCatalog from './src/components/ProductCatalog'
 import { CartProvider } from './src/context/cart'
+import SeasonalProductCatalog from './src/components/SeasonalProductCatalog'
 
 export default function App () {
   const { showMenu, hanldeShowMenu, hanldeShowCart, showCart } = useInterface()
@@ -23,7 +24,10 @@ export default function App () {
               {showMenu && <Menu hanldeShowMenu={hanldeShowMenu} />}
               <CartProvider>
                 {showCart && <Cart products={products} />}
-                {!showCart && <Outlet />}
+                {!showCart &&
+                  <main>
+                    <Outlet />
+                  </main>}
               </CartProvider>
               <Footer />
             </>
@@ -31,8 +35,8 @@ export default function App () {
         >
 
           <Route path='/' element={<Home products={products} />} />
-          <Route path='/Products' element={<ProductCatalog products={products} />} />
-          <Route path='/Products/:typeProducts' element={<ProductCatalog products={products} />} />
+          <Route path='/productos/:typeProducts' element={<ProductCatalog />} />
+          <Route path='/productos/navidad' element={<SeasonalProductCatalog />} />
 
         </Route>
       </Routes>
