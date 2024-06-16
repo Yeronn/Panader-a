@@ -1,16 +1,9 @@
 import { NavLink } from 'react-router-dom'
 import { XcircleIcon } from './icons'
+import productsServices from '../services/productsServices'
 import './menu.css'
 export default function Menu ({ hanldeShowMenu }) {
-  const typeOfProducts = [
-    { id: 1, section: 'all', name: 'Todo', season: false },
-    { id: 2, section: 'bread', name: 'Panes', season: false },
-    { id: 3, section: 'dessert', name: 'Postres', season: false },
-    { id: 4, section: 'cream', name: 'Cremas', season: false },
-    { id: 5, section: 'cake', name: 'Tortas', season: false },
-    { id: 6, section: 'christmas', name: 'Navidad', season: true },
-    { id: 7, section: 'halloween', name: 'Halloween', season: true }
-  ]
+  const categories = productsServices.getCategories()
   return (
     <section className='menu'>
       <div className='menu-content'>
@@ -21,10 +14,10 @@ export default function Menu ({ hanldeShowMenu }) {
         </div>
         <ul>
           {
-            typeOfProducts.map(typeProduct =>
+            categories.map(typeProduct =>
               !typeProduct.season && (
                 <li key={typeProduct.id} onClick={() => hanldeShowMenu()}>
-                  <NavLink to={`/productos/${typeProduct.name}`} state={{ sectionName: typeProduct.section }}>{typeProduct.name}</NavLink>
+                  <NavLink to={`/productos/${typeProduct.name}`} state={{ name: typeProduct.name, section: typeProduct.section }}>{typeProduct.name}</NavLink>
                 </li>
               ))
           }
@@ -32,10 +25,10 @@ export default function Menu ({ hanldeShowMenu }) {
         <p>Temporada</p>
         <ul>
           {
-            typeOfProducts.map(typeProduct =>
+            categories.map(typeProduct =>
               typeProduct.season && (
                 <li key={typeProduct.id} onClick={() => hanldeShowMenu()}>
-                  <NavLink to={`/productos/${typeProduct.name}`} state={{ sectionName: typeProduct.section }}>{typeProduct.name}</NavLink>
+                  <NavLink to={`/productos/${typeProduct.name}`} state={{ name: typeProduct.name, section: typeProduct.section }}>{typeProduct.name}</NavLink>
                 </li>
               ))
           }

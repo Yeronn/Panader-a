@@ -37,6 +37,7 @@ export default function App () {
           <Route path='/' element={<Home products={products} />} />
           <Route path='/productos/:typeProducts' element={<ProductCatalog />} />
           <Route path='/productos/navidad' element={<SeasonalProductCatalog />} />
+          <Route path='/productos/halloween' element={<SeasonalProductCatalog />} />
 
         </Route>
       </Routes>
