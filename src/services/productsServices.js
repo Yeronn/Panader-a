@@ -1,4 +1,6 @@
-import { products } from '../mocks/products.json'
+import { productsList } from '../mocks/products.json'
+
+let products = [...productsList]
 
 const getProductByCategory = (category) => {
   const productsByCategory = products.filter((product) => product.category === category || category === 'all')
@@ -39,8 +41,22 @@ const getCategoryByName = (name) => {
     { id: 7, section: 'halloween', name: 'Halloween', season: true }
   ]
   const targetCategory = categories.find(category => name === category.name)
-  console.log(targetCategory)
   return targetCategory
+}
+
+const buyProduct = (id, amount) => {
+  if (amount <= 0) return
+  const boughtProduct = products.find(product => (product.id === id))
+  if (boughtProduct && boughtProduct.stock >= amount) {
+    boughtProduct.stock = boughtProduct.stock - amount
+    boughtProduct.sold = boughtProduct.sold + amount
+    products = products.filter(product => product.id !== id)
+    products = [...products, boughtProduct]
+    return true
+  } else {
+    console.log('el producto no existe')
+    return false
+  }
 }
 
 export default {
@@ -48,5 +64,6 @@ export default {
   getProductBySeason,
   getProductsCategories,
   getCategories,
-  getCategoryByName
+  getCategoryByName,
+  buyProduct
 }

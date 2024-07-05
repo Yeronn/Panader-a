@@ -4,7 +4,7 @@ import Header from './src/components/Header'
 import Home from './src/components/Home'
 import Menu from './src/components/Menu'
 import Cart from './src/components/Cart'
-import { products } from './src/mocks/products.json'
+import { productsList } from './src/mocks/products.json'
 import { useInterface } from './src/hooks/useInterface'
 import { Outlet, Route, Routes } from 'react-router-dom'
 import ProductCatalog from './src/components/ProductCatalog'
@@ -23,7 +23,7 @@ export default function App () {
               <Header hanldeShowMenu={hanldeShowMenu} hanldeShowCart={hanldeShowCart} />
               {showMenu && <Menu hanldeShowMenu={hanldeShowMenu} />}
               <CartProvider>
-                {showCart && <Cart products={products} />}
+                {showCart && <Cart products={productsList} />}
                 {!showCart &&
                   <main>
                     <Outlet />
@@ -34,7 +34,7 @@ export default function App () {
           }
         >
 
-          <Route path='/' element={<Home products={products} />} />
+          <Route path='/' element={<Home products={productsList} />} />
           <Route path='/productos/:typeProducts' element={<ProductCatalog />} />
           <Route path='/productos/navidad' element={<SeasonalProductCatalog />} />
           <Route path='/productos/halloween' element={<SeasonalProductCatalog />} />

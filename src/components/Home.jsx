@@ -20,6 +20,7 @@ export default function Home ({ products }) {
       <NoveltyContainerClosingWave />
       <FeaturedProductsOpeningWave />
       <section className='most-selled-products'>
+        <h3>Productos más vendidos</h3>
         <ProductCatalog catalogTitle='Productos más vendidos' specialProducts={mostSelledProducts} />
       </section>
       <FeaturedProductsClosingWave />
