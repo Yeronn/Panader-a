@@ -3,13 +3,15 @@ import productsServices from '../services/productsServices'
 
 export function useGetPageData () {
   let { state } = useLocation()
+  const pathname = useLocation().pathname.split('/')
   if (!state) {
-    const pathname = useLocation().pathname.split('/')
-    state = { name: pathname[2] }
+    state = { name: pathname[3] }
     state.section = productsServices.getCategoryByName(state.name).section
   }
+  state.season = pathname[2] === 'temporada'
   return {
     name: state.name,
-    section: state.section
+    section: state.section,
+    season: state.season
   }
 }

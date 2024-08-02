@@ -28,7 +28,7 @@ export default function Menu ({ hanldeShowMenu }) {
             categories.map(typeProduct =>
               typeProduct.season && (
                 <li key={typeProduct.id} onClick={() => hanldeShowMenu()}>
-                  <NavLink to={`/productos/${typeProduct.name}`} state={{ name: typeProduct.name, section: typeProduct.section }}>{typeProduct.name}</NavLink>
+                  <NavLink to={`/productos/temporada/${typeProduct.name}`} state={{ name: typeProduct.name, section: typeProduct.section }}>{typeProduct.name}</NavLink>
                 </li>
               ))
           }

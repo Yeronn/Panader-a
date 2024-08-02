@@ -1,7 +1,11 @@
+import { useProductCard } from '../hooks/useProductCard'
+import AmountController from './AmountController'
 import { StarIcon, Xicon } from './icons'
 import './ProductCardModal.css'
 
 export default function ProductCardModal ({ name, price, stock, description, imgURL, closeProductModalCard }) {
+  const { amountProduct, totalProduct, addAmount, handleCheckAmount, subtractAmount } = useProductCard({ price, stock })
+
   return (
     <div className='overlay--product-modal'>
       <div className='product-modal-card'>
@@ -22,9 +26,12 @@ export default function ProductCardModal ({ name, price, stock, description, img
             <span className='product-modal--container-score'>5.0</span>
           </div>
           <p>{description}</p>
+          <p>Disponibles: {stock}</p>
+          <p>Precio: ${price}</p>
         </div>
         <div className='product-modal--footer'>
-          <span>${price}</span>
+          <AmountController amountProduct={amountProduct} handleCheckAmount={handleCheckAmount} addAmount={addAmount} subtractAmount={subtractAmount} />
+          <span>Total: {totalProduct}</span>
           <button>Add to cart</button>
         </div>
       </div>

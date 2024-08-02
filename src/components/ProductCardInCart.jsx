@@ -1,9 +1,9 @@
-import { MinusCircleIcon, PlusCircleIcon } from './icons'
 import { useProductCard } from '../hooks/useProductCard'
+import AmountController from './AmountController'
 
 export default function ProductCardInCart ({ product, deleteProduct }) {
   const { id, name, price, stock, description, imgURL } = product
-  const { amountProduct, totalProduct, handleCheckAmount, addAmount, subtractAmount } = useProductCard({ price, stock })
+  const { amountProduct, totalProduct, addAmount, handleCheckAmount, subtractAmount } = useProductCard({ price, stock })
   return (
     <article className='cart-item'>
       <img src={imgURL} alt='' className='cart-item--img' />
@@ -11,15 +11,7 @@ export default function ProductCardInCart ({ product, deleteProduct }) {
         <h3 className='cart-item--name'>{name}</h3>
         <p className='cart-item--stock'>Stock: <span className='cart-item--stock-value'>{stock}</span></p>
         <p className='cart-item--description'>{description}</p>
-        <div className='cart-item--amount'>
-          <span onClick={subtractAmount}>
-            <MinusCircleIcon />
-          </span>
-          <input type='text' value={amountProduct} onChange={handleCheckAmount} />
-          <span onClick={addAmount}>
-            <PlusCircleIcon />
-          </span>
-        </div>
+        <AmountController amountProduct={amountProduct} handleCheckAmount={handleCheckAmount} addAmount={addAmount} subtractAmount={subtractAmount} />
         <p className='cart-item--total'>Total: $ {totalProduct}</p>
       </div>
       {(amountProduct <= 0) &&

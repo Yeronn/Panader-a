@@ -1,0 +1,48 @@
+.bread-catalog > img {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.bread-catalog > h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.bread-catalog > span {
+  display: block;
+  margin: 0 auto 50px auto;
+  width: 40px;
+  height: 40px;
+}
+
+.bread-catalog > span > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.staggered-product-cards {
+  display: flex;
+  padding: 0 8px;
+}
+
+.staggered-card {
+  position: relative;
+  width: 362px;
+  height: 197px;
+}
+
+.staggered-card > img {
+  width: 100%;
+  height: 100%;
+}
+
+.staggered-card > .staggered-card--content{
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  font-weight: 800;
+  gap: 4px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}

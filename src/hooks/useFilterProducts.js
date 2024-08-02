@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import productsServices from '../services/productsServices'
 
-export function useFilterProducts ({ section }) {
+export function useFilterProducts ({ section, season = false }) {
   const productFilter = ['all', ...productsServices.getProductsCategories()]
-  const products = productsServices.getProductBySeason(section)
+  const products = season ? productsServices.getProductBySeason(section) : productsServices.getProductByCategory(section)
 
   const [filterProducts, setFilterProducts] = useState('all')
   const toggleFilter = (filter) => {

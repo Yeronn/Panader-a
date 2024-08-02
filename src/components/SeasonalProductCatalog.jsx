@@ -5,9 +5,9 @@ import { useGetPageData } from '../hooks/useGetPageData'
 import { TYPEOFPRODUCTS } from '../utils/constants'
 
 export default function SeasonalProductCatalog () {
-  const { name, section } = useGetPageData()
+  const { name, section, season } = useGetPageData()
 
-  const { productFilter, toggleFilter, filteredProducts, getFilterClass } = useFilterProducts({ section })
+  const { productFilter, toggleFilter, filteredProducts, getFilterClass } = useFilterProducts({ section, season })
 
   return (
     <section className='seasonal-section'>
