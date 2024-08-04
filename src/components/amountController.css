@@ -1,0 +1,16 @@
+.amount-controller {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.amount-controller svg {
+  width: 25px;
+  cursor: pointer;
+}
+
+.amount-controller > input {
+  text-align: center;
+  width: 40px;
+}

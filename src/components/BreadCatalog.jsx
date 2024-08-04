@@ -1,10 +1,12 @@
 import './breadCatalog.css'
 import { HeartIcon } from './icons'
-import AmountController from './AmountController'
-import { useProductCard } from '../hooks/useProductCard'
+import { useGetPageData } from '../hooks/useGetPageData'
+import { useFilterProducts } from '../hooks/useFilterProducts'
+import StaggeredCard from './StaggeredCard'
 
 export default function BreadCatalog () {
-  const { amountProduct, addAmount, handleCheckAmount, subtractAmount } = useProductCard({ price: 18, stock: 20 })
+  const { section, season } = useGetPageData()
+  const { filteredProducts } = useFilterProducts({ section, season })
 
   return (
     <section className='bread-catalog'>
@@ -12,15 +14,9 @@ export default function BreadCatalog () {
       <h2>Elige tus favoritos</h2>
       <span> <HeartIcon /> </span>
       <div className='staggered-product-cards'>
-        <article className='staggered-card'>
-          <img src='https://images.pexels.com/photos/13019131/pexels-photo-13019131.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt='' />
-          <div className='staggered-card--content'>
-            <h3>Roscones</h3>
-            <p>Descripcion</p>
-            <AmountController amountProduct={amountProduct} handleCheckAmount={handleCheckAmount} addAmount={addAmount} subtractAmount={subtractAmount} />
-            <button>Comprar</button>
-          </div>
-        </article>
+        {filteredProducts.map((product, index) => (
+          <StaggeredCard key={product.id} {...product} position={index % 2 === 0 ? 'left' : 'right'} />
+        ))}
       </div>
     </section>
   )

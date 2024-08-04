@@ -1,8 +1,9 @@
+import './amountController.css'
 import { MinusCircleIcon, PlusCircleIcon } from './icons'
 
 export default function AmountController ({ amountProduct, handleCheckAmount, addAmount, subtractAmount }) {
   return (
-    <div className='cart-item--amount'>
+    <div className='amount-controller'>
       <span onClick={subtractAmount}>
         <MinusCircleIcon />
       </span>

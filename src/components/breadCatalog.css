@@ -22,27 +22,8 @@
 
 .staggered-product-cards {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
   padding: 0 8px;
-}
-
-.staggered-card {
-  position: relative;
-  width: 362px;
-  height: 197px;
-}
-
-.staggered-card > img {
-  width: 100%;
-  height: 100%;
-}
-
-.staggered-card > .staggered-card--content{
-  display: flex;
-  flex-direction: column;
-  font-size: 2rem;
-  font-weight: 800;
-  gap: 4px;
-  position: absolute;
-  top: 15px;
-  right: 15px;
 }

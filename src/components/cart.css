@@ -57,22 +57,6 @@
   overflow-y: auto;
 }
 
-.cart-item--amount {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.cart-item--amount svg {
-  width: 25px;
-}
-
-.cart-item--amount > input {
-  text-align: center;
-  width: 40px;
-}
-
 .cart > button {
   font-size: 1.4rem;
   width: 80px;

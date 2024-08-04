@@ -5,10 +5,17 @@ export function useGetPageData () {
   let { state } = useLocation()
   const pathname = useLocation().pathname.split('/')
   if (!state) {
-    state = { name: pathname[3] }
-    state.section = productsServices.getCategoryByName(state.name).section
+    if (pathname[2] === 'temporada') {
+      state = { name: pathname[3] }
+      state.section = productsServices.getCategoryByName(state.name).section
+    } else {
+      state.name = pathname[2]
+      state.section = productsServices.getCategoryByName(state.name).section
+    }
   }
   state.season = pathname[2] === 'temporada'
+  console.log(state)
+
   return {
     name: state.name,
     section: state.section,
