@@ -1,0 +1,49 @@
+.inverted-card {
+  display: flex;
+  width: 380px;
+  height: 205px;
+  padding: 10px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 13px;
+  background: rgba(255, 223, 109, 0.24);
+}
+
+.invert {
+  flex-direction: row-reverse;
+}
+
+.inverted-card > img {
+  width: 45%;
+  height: 165px;
+}
+
+.inverted-card--content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  gap: 2px
+}
+
+
+.inverted-card--content > h4 {
+  font-size: 1.7rem;
+}
+.inverted-card--content > p {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.inverted-card--content > span {
+  align-self: self-start;
+}
+
+.inverted-card--content > button {
+  width: 80px;
+  height: 30px;
+  background-color: #FFDF6D;
+  border: none;
+  cursor: pointer;
+}

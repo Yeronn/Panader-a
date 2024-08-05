@@ -11,6 +11,7 @@ import ProductCatalog from './src/components/ProductCatalog'
 import { CartProvider } from './src/context/cart'
 import SeasonalProductCatalog from './src/components/SeasonalProductCatalog'
 import BreadCatalog from './src/components/BreadCatalog'
+import DessertsCatalog from './src/components/DessertsCatalog.jsx'
 
 export default function App () {
   const { showMenu, hanldeShowMenu, hanldeShowCart, showCart } = useInterface()
@@ -38,6 +39,7 @@ export default function App () {
           <Route path='/' element={<Home products={productsList} />} />
           <Route path='/productos/:typeProducts' element={<ProductCatalog />} />
           <Route path='/productos/panes' element={<BreadCatalog />} />
+          <Route path='/productos/postres' element={<DessertsCatalog />} />
           <Route path='/productos/temporada/navidad' element={<SeasonalProductCatalog />} />
           <Route path='/productos/temporada/halloween' element={<SeasonalProductCatalog />} />
 

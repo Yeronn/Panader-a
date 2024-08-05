@@ -1,0 +1,31 @@
+.desserts-catalog {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+}
+.thin-image-carousel {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.thin-image-carousel > a {
+  width: 123px;
+  height: 221px;
+  cursor: pointer;
+}
+
+.thin-image-carousel > a > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+}
+
+.inverted-product-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
