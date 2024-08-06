@@ -5,6 +5,10 @@
   gap: 10px;
 }
 
+.amount-controller > span {
+  width: 25px;
+  height: 25px;
+}
 .amount-controller svg {
   width: 25px;
   cursor: pointer;

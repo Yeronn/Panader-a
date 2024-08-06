@@ -131,6 +131,18 @@
       "category": "cake",
       "sold": 0,
       "date": "2024-05-10"
+    },
+    {
+      "id": 12,
+      "name": "Crema de mani Bega",
+      "price": 5,
+      "stock": 5,
+      "description": "Crema de mani de 470g",
+      "imgURL": "https://static.winc.com.au/pi/64/4c8bb0ccf743082c1e9835daf8f16ab3a0db79-1195796/lgsq.jpg",
+      "season": "bakery",
+      "category": "cream",
+      "sold": 0,
+      "date": "2024-05-16"
     }
   ]  
 }

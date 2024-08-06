@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 60px;
+  margin-bottom: 60px;
 }
 .thin-image-carousel {
   display: flex;
@@ -10,10 +11,15 @@
   gap: 8px;
 }
 
+
 .thin-image-carousel > a {
   width: 123px;
   height: 221px;
   cursor: pointer;
+}
+
+.thin-image-carousel > a:hover {
+  transform: scale(1.1);
 }
 
 .thin-image-carousel > a > img {
