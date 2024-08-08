@@ -1,10 +1,12 @@
 import './staggeredCard.css'
 import { useProductCard } from '../hooks/useProductCard'
 import AmountController from './AmountController'
+import { useCart } from '../hooks/useCart'
 
-export default function StaggeredCard ({ imgURL, name, price, stock, position = 'right' }) {
+export default function StaggeredCard ({ product, position = 'right' }) {
+  const { imgURL, name, price, stock } = product
   const { amountProduct, addAmount, handleCheckAmount, subtractAmount, totalProduct } = useProductCard({ price, stock })
-
+  const { addToCart } = useCart()
   return (
     <article className='staggered-card'>
       <img src={imgURL} alt='' />
@@ -12,7 +14,7 @@ export default function StaggeredCard ({ imgURL, name, price, stock, position = 
       <div className={`staggered-card--content ${position}`}>
         <AmountController amountProduct={amountProduct} handleCheckAmount={handleCheckAmount} addAmount={addAmount} subtractAmount={subtractAmount} />
         <p>$ {totalProduct}</p>
-        <button>Comprar</button>
+        <button onClick={() => addToCart({ ...product, amount: amountProduct })}>Comprar</button>
       </div>
     </article>
   )

@@ -1,7 +1,7 @@
 import { useProductCard } from '../hooks/useProductCard'
 import AmountController from './AmountController'
 
-export default function ProductCardInCart ({ product, deleteProduct }) {
+export default function ProductCardInCart ({ product, deleteProduct, addToCart, reduceQuantity }) {
   const { id, name, price, stock, description, imgURL } = product
   const { amountProduct, totalProduct, addAmount, handleCheckAmount, subtractAmount } = useProductCard({ price, stock })
   return (

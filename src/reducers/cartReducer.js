@@ -1,3 +1,4 @@
+import productsServices from '../services/productsServices'
 export const cartInitialState = JSON.parse(window.localStorage.getItem('cart')) || []
 
 export const CART_ACTION_TYPES = {
@@ -13,39 +14,54 @@ export const updateLocalStorage = state => {
 
 const UPDATE_STATE_BY_ACTION = {
   [CART_ACTION_TYPES.ADD_TO_CART]: (state, action) => {
-    const { id } = action.payload
+    const { id, amount: amountCart } = action.payload
     const productInCartIndex = state.findIndex(item => item.id === id)
+
+    if (action.payload.stock < amountCart && amountCart < 0) {
+      console.log('No hay suficiente stock de este producto o la cantidad de producto que está intentando añadir es negativa')
+      return state
+    }
 
     if (productInCartIndex >= 0) {
       const newState = [
         ...state.slice(0, productInCartIndex),
-        { ...state[productInCartIndex], quantity: state[productInCartIndex].quantity + 1 },
+        // { ...state[productInCartIndex], stock: state[productInCartIndex].stock + 1 },
+        { ...state[productInCartIndex], stock: state[productInCartIndex].stock - amountCart, sold: state[productInCartIndex].sold + amountCart },
         ...state.slice(productInCartIndex + 1)
       ]
 
       updateLocalStorage(newState)
+      productsServices.updateProduct(newState)
       return newState
+    }
+
+    const { amount, ...productWithoutAmount } = action.payload
+
+    const updatedProduct = {
+      ...productWithoutAmount, // product
+      // quantity: 1
+      sold: productWithoutAmount.sold + amount,
+      stock: productWithoutAmount.stock - amount
     }
 
     const newState = [
       ...state,
-      {
-        ...action.payload, // product
-        quantity: 1
-      }
+      updatedProduct
     ]
 
+    productsServices.updateProduct(updatedProduct)
     updateLocalStorage(newState)
     return newState
   },
   [CART_ACTION_TYPES.REDUCE_QUANTITY]: (state, action) => {
-    const { id } = action.payload
+    const { id, amount } = action.payload
     const productInCartIndex = state.findIndex(item => item.id === id)
 
-    if (productInCartIndex >= 0 && state[productInCartIndex].quantity > 0) {
+    if (productInCartIndex >= 0 && state[productInCartIndex].stock > 0 && state[productInCartIndex].stock >= amount) {
       const newState = [
         ...state.slice(0, productInCartIndex),
-        { ...state[productInCartIndex], quantity: state[productInCartIndex].quantity - 1 },
+        // { ...state[productInCartIndex], stock: state[productInCartIndex].stock - 1 },
+        { ...state[productInCartIndex], stock: state[productInCartIndex].stock - amount },
         ...state.slice(productInCartIndex + 1)
       ]
       updateLocalStorage(newState)

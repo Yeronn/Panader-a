@@ -15,7 +15,7 @@ export default function BreadCatalog () {
       <span> <HeartIcon /> </span>
       <div className='staggered-product-cards'>
         {filteredProducts.map((product, index) => (
-          <StaggeredCard key={product.id} {...product} position={index % 2 === 0 ? 'left' : 'right'} />
+          <StaggeredCard key={product.id} product={product} position={index % 2 === 0 ? 'left' : 'right'} />
         ))}
       </div>
     </section>

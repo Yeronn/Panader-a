@@ -44,6 +44,16 @@ const getCategoryByName = (name) => {
   return targetCategory
 }
 
+const updateProduct = (updatedProduct) => {
+  console.log(updatedProduct)
+
+  console.log(products)
+  products = products.map(product =>
+    product.id === updatedProduct.id ? updatedProduct : product
+  )
+  console.log(products)
+}
+
 const buyProduct = (id, amount) => {
   if (amount <= 0) return
   const boughtProduct = products.find(product => (product.id === id))
@@ -65,5 +75,6 @@ export default {
   getProductsCategories,
   getCategories,
   getCategoryByName,
+  updateProduct,
   buyProduct
 }

@@ -1,5 +1,5 @@
 import { useReducer } from 'react'
-import { CART_ACTION_TYPES, cartInitialState, cartReducer } from '../reducers/cart'
+import { CART_ACTION_TYPES, cartInitialState, cartReducer } from '../reducers/cartReducer'
 
 export function useCartReducer () {
   const [state, dispatch] = useReducer(cartReducer, cartInitialState)
