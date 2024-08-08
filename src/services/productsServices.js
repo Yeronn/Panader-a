@@ -45,13 +45,9 @@ const getCategoryByName = (name) => {
 }
 
 const updateProduct = (updatedProduct) => {
-  console.log(updatedProduct)
-
-  console.log(products)
   products = products.map(product =>
     product.id === updatedProduct.id ? updatedProduct : product
   )
-  console.log(products)
 }
 
 const buyProduct = (id, amount) => {

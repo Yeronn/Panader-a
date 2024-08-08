@@ -14,10 +14,18 @@ export const updateLocalStorage = state => {
 
 const UPDATE_STATE_BY_ACTION = {
   [CART_ACTION_TYPES.ADD_TO_CART]: (state, action) => {
-    const { id, amount: amountCart } = action.payload
+    const { amount, ...productWithoutAmount } = action.payload
+    const { id } = productWithoutAmount
+
     const productInCartIndex = state.findIndex(item => item.id === id)
 
-    if (action.payload.stock < amountCart && amountCart < 0) {
+    const updatedProduct = {
+      ...productWithoutAmount,
+      sold: productWithoutAmount.sold + amount,
+      stock: productWithoutAmount.stock - amount
+    }
+
+    if (productWithoutAmount.stock < amount && amount < 0) {
       console.log('No hay suficiente stock de este producto o la cantidad de producto que está intentando añadir es negativa')
       return state
     }
@@ -26,22 +34,13 @@ const UPDATE_STATE_BY_ACTION = {
       const newState = [
         ...state.slice(0, productInCartIndex),
         // { ...state[productInCartIndex], stock: state[productInCartIndex].stock + 1 },
-        { ...state[productInCartIndex], stock: state[productInCartIndex].stock - amountCart, sold: state[productInCartIndex].sold + amountCart },
+        { ...updatedProduct },
         ...state.slice(productInCartIndex + 1)
       ]
 
       updateLocalStorage(newState)
-      productsServices.updateProduct(newState)
+      productsServices.updateProduct(updatedProduct)
       return newState
-    }
-
-    const { amount, ...productWithoutAmount } = action.payload
-
-    const updatedProduct = {
-      ...productWithoutAmount, // product
-      // quantity: 1
-      sold: productWithoutAmount.sold + amount,
-      stock: productWithoutAmount.stock - amount
     }
 
     const newState = [
@@ -54,7 +53,8 @@ const UPDATE_STATE_BY_ACTION = {
     return newState
   },
   [CART_ACTION_TYPES.REDUCE_QUANTITY]: (state, action) => {
-    const { id, amount } = action.payload
+    const { amount, ...productWithoutAmount } = action.payload
+    const { id } = productWithoutAmount
     const productInCartIndex = state.findIndex(item => item.id === id)
 
     if (productInCartIndex >= 0 && state[productInCartIndex].stock > 0 && state[productInCartIndex].stock >= amount) {

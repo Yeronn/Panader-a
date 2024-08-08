@@ -9,8 +9,6 @@ export default function Cart ({ products }) {
   const deleteProductInCart = (idProductToDelete) => {
     setProductsInCart([...productsInCart.filter(product => product.id !== idProductToDelete)])
   }
-  console.log(cart)
-
   return (
     <div className='cart'>
       <h3>Carrito</h3>
