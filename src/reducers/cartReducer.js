@@ -14,29 +14,28 @@ export const updateLocalStorage = state => {
 
 const UPDATE_STATE_BY_ACTION = {
   [CART_ACTION_TYPES.ADD_TO_CART]: (state, action) => {
-    const { amount, ...productWithoutAmount } = action.payload
-    const { id } = productWithoutAmount
+    const { amount, amountInCart, ...product } = action.payload
+    const { id } = product
 
     const productInCartIndex = state.findIndex(item => item.id === id)
 
-    const updatedProduct = {
-      ...productWithoutAmount,
-      sold: productWithoutAmount.sold + amount,
-      stock: productWithoutAmount.stock - amount
-    }
-
-    if (productWithoutAmount.stock < amount && amount < 0) {
+    if (product.stock < amount || amount <= 0) {
       console.log('No hay suficiente stock de este producto o la cantidad de producto que está intentando añadir es negativa')
       return state
+    }
+
+    const updatedProduct = {
+      ...product,
+      stock: product.stock - amount
     }
 
     if (productInCartIndex >= 0) {
       const newState = [
         ...state.slice(0, productInCartIndex),
-        // { ...state[productInCartIndex], stock: state[productInCartIndex].stock + 1 },
-        { ...updatedProduct },
+        { ...updatedProduct, amountInCart: state[productInCartIndex].amountInCart + amount },
         ...state.slice(productInCartIndex + 1)
       ]
+      console.log(updatedProduct, newState)
 
       updateLocalStorage(newState)
       productsServices.updateProduct(updatedProduct)
@@ -45,32 +44,43 @@ const UPDATE_STATE_BY_ACTION = {
 
     const newState = [
       ...state,
-      updatedProduct
+      { ...updatedProduct, amountInCart: amount }
     ]
+    console.log(updatedProduct, newState)
 
     productsServices.updateProduct(updatedProduct)
     updateLocalStorage(newState)
     return newState
   },
   [CART_ACTION_TYPES.REDUCE_QUANTITY]: (state, action) => {
-    const { amount, ...productWithoutAmount } = action.payload
-    const { id } = productWithoutAmount
+    const { amount, amountInCart, ...product } = action.payload
+    const { id } = product
     const productInCartIndex = state.findIndex(item => item.id === id)
 
-    if (productInCartIndex >= 0 && state[productInCartIndex].stock > 0 && state[productInCartIndex].stock >= amount) {
+    const updatedProduct = {
+      ...product,
+      stock: product.stock + amount
+    }
+
+    if (amountInCart - amount <= 0) {
+      const newState = state.filter(item => item.id !== id)
+      updateLocalStorage(newState)
+      productsServices.updateProduct(updatedProduct)
+      return newState
+    }
+
+    if (productInCartIndex >= 0 && state[productInCartIndex].amountInCart >= amount) {
       const newState = [
         ...state.slice(0, productInCartIndex),
-        // { ...state[productInCartIndex], stock: state[productInCartIndex].stock - 1 },
-        { ...state[productInCartIndex], stock: state[productInCartIndex].stock - amount },
+        { ...updatedProduct, amountInCart: state[productInCartIndex].amountInCart - amount },
         ...state.slice(productInCartIndex + 1)
       ]
+      productsServices.updateProduct(updatedProduct)
       updateLocalStorage(newState)
       return newState
     } else {
-      state.splice(productInCartIndex, 1)
-      const newState = [...state]
-      updateLocalStorage(newState)
-      return newState
+      console.log('No se puede disminuir la cantidad a un producto que no se encuentra en el carrito')
+      return state
     }
   },
   [CART_ACTION_TYPES.REMOVE_FROM_CART]: (state, action) => {

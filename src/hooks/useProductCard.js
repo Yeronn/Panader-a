@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
-export function useProductCard ({ price, stock }) {
-  const [amountProduct, setAmountProduct] = useState(1)
-  const [totalProduct, setTotalProduct] = useState(price)
+export function useProductCard ({ price, stock, initialAmountProduct = 1 }) {
+  const [amountProduct, setAmountProduct] = useState(initialAmountProduct)
+  const [totalProduct, setTotalProduct] = useState(price * initialAmountProduct)
 
   const handleCheckAmount = (event) => {
     const inputAmount = Number(event.target.value)

@@ -12,7 +12,7 @@ export default function ProductCardModal ({ name, price, stock, description, img
         <div className='product-modal-card--close' onClick={() => closeProductModalCard()}>
           <Xicon />
         </div>
-        <img class='product-modal--img' src={imgURL} alt={name} />
+        <img className='product-modal--img' src={imgURL} alt={name} />
         <div className='product-modal--container'>
           <h5 className='product-modal--container-title'>{name}</h5>
           <div className='product-modal--container-content'>
