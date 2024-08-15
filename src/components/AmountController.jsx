@@ -7,7 +7,11 @@ export default function AmountController ({ product, amountProduct, handleCheckA
       <span onClick={product ? () => subtractAmount({ ...product, amount: 1 }) : subtractAmount}>
         <MinusCircleIcon />
       </span>
-      <input type='text' value={amountProduct} onChange={handleCheckAmount} />
+      <input
+        type='text'
+        value={amountProduct}
+        onChange={handleCheckAmount || (() => {})}
+      />
       <span onClick={product ? () => addAmount({ ...product, amount: 1 }) : addAmount}>
         <PlusCircleIcon />
       </span>

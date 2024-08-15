@@ -20,7 +20,7 @@ const UPDATE_STATE_BY_ACTION = {
     const productInCartIndex = state.findIndex(item => item.id === id)
 
     if (product.stock < amount || amount <= 0) {
-      console.log('No hay suficiente stock de este producto o la cantidad de producto que está intentando añadir es negativa')
+      console.log('No hay suficiente stock de este producto o la cantidad de producto que está intentando añadir no es valida')
       return state
     }
 

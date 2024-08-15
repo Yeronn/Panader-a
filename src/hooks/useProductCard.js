@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 export function useProductCard ({ price, stock, initialAmountProduct = 1 }) {
+  if (stock === 0) initialAmountProduct = stock
   const [amountProduct, setAmountProduct] = useState(initialAmountProduct)
   const [totalProduct, setTotalProduct] = useState(price * initialAmountProduct)
 
