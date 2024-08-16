@@ -35,7 +35,6 @@ const UPDATE_STATE_BY_ACTION = {
         { ...updatedProduct, amountInCart: state[productInCartIndex].amountInCart + amount },
         ...state.slice(productInCartIndex + 1)
       ]
-      console.log(updatedProduct, newState)
 
       updateLocalStorage(newState)
       productsServices.updateProduct(updatedProduct)
@@ -46,7 +45,6 @@ const UPDATE_STATE_BY_ACTION = {
       ...state,
       { ...updatedProduct, amountInCart: amount }
     ]
-    console.log(updatedProduct, newState)
 
     productsServices.updateProduct(updatedProduct)
     updateLocalStorage(newState)
@@ -57,31 +55,30 @@ const UPDATE_STATE_BY_ACTION = {
     const { id } = product
     const productInCartIndex = state.findIndex(item => item.id === id)
 
+    if (!(productInCartIndex >= 0)) {
+      console.log('El producto no se encuentra en el carrito')
+      return state
+    }
+
     const updatedProduct = {
       ...product,
       stock: product.stock + amount
     }
 
+    productsServices.updateProduct(updatedProduct)
     if (amountInCart - amount <= 0) {
       const newState = state.filter(item => item.id !== id)
       updateLocalStorage(newState)
-      productsServices.updateProduct(updatedProduct)
       return newState
     }
 
-    if (productInCartIndex >= 0 && state[productInCartIndex].amountInCart >= amount) {
-      const newState = [
-        ...state.slice(0, productInCartIndex),
-        { ...updatedProduct, amountInCart: state[productInCartIndex].amountInCart - amount },
-        ...state.slice(productInCartIndex + 1)
-      ]
-      productsServices.updateProduct(updatedProduct)
-      updateLocalStorage(newState)
-      return newState
-    } else {
-      console.log('No se puede disminuir la cantidad a un producto que no se encuentra en el carrito')
-      return state
-    }
+    const newState = [
+      ...state.slice(0, productInCartIndex),
+      { ...updatedProduct, amountInCart: state[productInCartIndex].amountInCart - amount },
+      ...state.slice(productInCartIndex + 1)
+    ]
+    updateLocalStorage(newState)
+    return newState
   },
   [CART_ACTION_TYPES.REMOVE_FROM_CART]: (state, action) => {
     const { id } = action.payload

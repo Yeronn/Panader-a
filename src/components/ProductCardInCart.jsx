@@ -1,10 +1,17 @@
-// import { useProductCard } from '../hooks/useProductCard'
+import { useState } from 'react'
 import AmountController from './AmountController'
 
 export default function ProductCardInCart ({ product, deleteProduct, addToCart, reduceQuantity }) {
-  const { id, name, price, stock, description, imgURL, amountInCart } = product
-  // const { handleCheckAmount } = useProductCard({ price, stock, initialAmountProduct: amountInCart })
-  // const { amountProduct, totalProduct, addAmount, handleCheckAmount, subtractAmount } = useProductCard({ price, stock })
+  const { name, price, stock, description, imgURL, amountInCart } = product
+  const [removeProductFromCart, setRemoveProductFromCart] = useState(false)
+
+  const handleSubtractAmount = (dataProduct) => {
+    if (amountInCart === 1) {
+      setRemoveProductFromCart(true)
+    } else {
+      reduceQuantity({ ...dataProduct })
+    }
+  }
   return (
     <article className='cart-item'>
       <img src={imgURL} alt='' className='cart-item--img' />
@@ -12,17 +19,17 @@ export default function ProductCardInCart ({ product, deleteProduct, addToCart, 
         <h3 className='cart-item--name'>{name}</h3>
         <p className='cart-item--stock'>Disponible: <span className='cart-item--stock-value'>{stock}</span></p>
         <p className='cart-item--description'>{description}</p>
-        <AmountController product={product} amountProduct={amountInCart} addAmount={addToCart} subtractAmount={reduceQuantity} />
+        <AmountController product={product} amountProduct={amountInCart} addAmount={addToCart} subtractAmount={handleSubtractAmount} />
         <p className='cart-item--total'>Total: $ {amountInCart * price}</p>
       </div>
-      {(amountInCart <= 0) &&
+      {(removeProductFromCart) && (
         <div className='cart-item--delete'>
           <p>¿Desea eliminar el producto?</p>
           <div>
-            <button onClick={() => { deleteProduct(id) }}>Si</button>
-            <button onClick={() => addToCart({ ...product, amountInCart: 1 })}>No</button>
+            <button onClick={() => { reduceQuantity({ ...product, amount: 1 }) }}>Si</button>
+            <button onClick={() => { setRemoveProductFromCart(false) }}>No</button>
           </div>
-        </div>}
+        </div>)}
     </article>
   )
 }
