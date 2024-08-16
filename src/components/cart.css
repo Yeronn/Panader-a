@@ -6,55 +6,13 @@
   margin: 20px 0 40px;
   gap: 20px;
 }
+
 .cart-items-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 25px;
   list-style-type: none;
-}
-
-.cart-item {
-  display: flex;
-  width: 340px;
-  padding: 15px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  background-color: #fffbec;
-}
-
-.cart-item--img {
-  width: 120px;
-  height: 120px;
-  border-radius: 5px;
-}
-
-.cart-item--content{
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.cart-item--stock{
-  text-align: left;
-  font-weight: 800;
-}
-
-.cart-item--stock-value{
-  color: #dda15e;
-}
-
-.cart-item--description {
-  text-align: left;
-  font-size: 1.3rem;
-  width: 168.35px;
-  max-height: 48px;
-  overflow-wrap: break-word;
-  overflow-y: auto;
 }
 
 .cart > button {
@@ -66,33 +24,14 @@
   border-radius: 5px;
 }
 
-.cart-item--delete {
-  position: absolute;
-  padding: 20px;
-  text-align: center;
-  z-index: 1;
-  background-color: #dda15e;
-  border-radius: 5px;
-}
-
-.cart-item--delete > div {
+.cart--total {
   display: flex;
-  justify-content: center;
-  padding: 10px 0;
-  gap: 10px;
-}
-
-.cart-item--delete > div > button {
-  width: 50px;
-  padding: 3px;
-  font-size: 1.6rem;
-  background-color: #fffbec;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-.cart-item--delete > div > button:hover {
-  opacity: 0.7;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 43px;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #B07C30;
 }

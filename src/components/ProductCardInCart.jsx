@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import AmountController from './AmountController'
+import './productCardInCart.css'
+import { TrashIcon } from './icons'
+import { useCart } from '../hooks/useCart'
 
-export default function ProductCardInCart ({ product, deleteProduct, addToCart, reduceQuantity }) {
+export default function ProductCardInCart ({ product }) {
+  const { addToCart, reduceQuantity } = useCart()
   const { name, price, stock, description, imgURL, amountInCart } = product
   const [removeProductFromCart, setRemoveProductFromCart] = useState(false)
 
@@ -14,6 +18,9 @@ export default function ProductCardInCart ({ product, deleteProduct, addToCart, 
   }
   return (
     <article className='cart-item'>
+      <span className='cart-item--remove' onClick={() => setRemoveProductFromCart(true)}>
+        <TrashIcon />
+      </span>
       <img src={imgURL} alt='' className='cart-item--img' />
       <div className='cart-item--content'>
         <h3 className='cart-item--name'>{name}</h3>
@@ -26,7 +33,7 @@ export default function ProductCardInCart ({ product, deleteProduct, addToCart, 
         <div className='cart-item--delete'>
           <p>¿Desea eliminar el producto?</p>
           <div>
-            <button onClick={() => { reduceQuantity({ ...product, amount: 1 }) }}>Si</button>
+            <button onClick={() => { reduceQuantity({ ...product, amount: amountInCart }) }}>Si</button>
             <button onClick={() => { setRemoveProductFromCart(false) }}>No</button>
           </div>
         </div>)}
