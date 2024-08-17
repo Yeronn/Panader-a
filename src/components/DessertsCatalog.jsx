@@ -7,12 +7,12 @@ import InvertedCard from './InvertedCard.jsx'
 export default function DessertsCatalog () {
   const { section, season } = useGetPageData()
   const { filteredProducts } = useFilterProducts({ section, season })
-  const newProducts = filterAndSortProductsByDate({ products: filteredProducts, quantity: 3 })
+  const newestProducts = filterAndSortProductsByDate({ products: filteredProducts, quantity: 3 })
 
   return (
     <section className='desserts-catalog'>
       <div className='thin-image-carousel'>
-        {newProducts.map(product => (
+        {newestProducts.map(product => (
           <a key={product.id} href={`#producto-${product.id}`}>
             <img src={product.imgURL} alt='' />
           </a>

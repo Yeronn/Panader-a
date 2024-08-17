@@ -3,7 +3,7 @@ import ProductCardInCart from './ProductCardInCart'
 import { useCart } from '../hooks/useCart'
 import { useEffect, useState } from 'react'
 
-export default function Cart ({ products }) {
+export default function Cart () {
   const { cart, clearCart } = useCart()
   const [totalCart, setTotalCart] = useState(0)
   useEffect(() => {
