@@ -4,13 +4,13 @@ import productsServices from '../services/productsServices'
 import ProductCardModal from './ProductCardModal'
 import { useProductCardModal } from '../hooks/useProductCardModal'
 import { syncProductsWithCart } from '../logic/products'
+import { useCart } from '../hooks/useCart'
 
 export default function ProductCatalog ({ catalogTitle, specialProducts }) {
   const { state } = useLocation() ?? null
-  // const title = catalogTitle ?? state?.name
+  const { cart } = useCart()
   let products = specialProducts ?? productsServices.getProductByCategory(state?.section)
-
-  products = syncProductsWithCart({ products })
+  products = syncProductsWithCart({ products, cart })
 
   const { showProductModalCard, productModalCardInfo, closeProductModalCard, openShowProductModalCard } = useProductCardModal()
   return (

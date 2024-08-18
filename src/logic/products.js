@@ -1,5 +1,3 @@
-import { cartInitialState } from '../reducers/cartReducer'
-
 export const searchMostSelledProducts = ({ products, quantityProducts }) => {
   const productsInStockAndSold = products.filter(product => product.stock > 0 && product.sold > 0)
   const sortedArraybySold = productsInStockAndSold.sort((a, b) => b.sold - a.sold)
@@ -13,21 +11,17 @@ export const filterAndSortProductsByDate = ({ products, quantity }) => {
   return sortProductsByDate.slice(0, quantity)
 }
 
-export const syncProductsWithCart = ({ products }) => {
-  console.log(products)
-  console.log(cartInitialState)
-  const synchronizedProducts = products.map(filteredProduct => {
-    const cartProduct = cartInitialState.find(item => item.id === filteredProduct.id)
+export const syncProductsWithCart = ({ products, cart }) => {
+  const synchronizedProducts = products.map(productToSynchronize => {
+    const cartProduct = cart.find(item => item.id === productToSynchronize.id)
 
     if (cartProduct) {
       return {
-        ...filteredProduct,
-        stock: filteredProduct.stock - cartProduct.amountInCart
+        ...productToSynchronize,
+        stock: cartProduct.stock
       }
     }
-    return filteredProduct
+    return productToSynchronize
   })
-
-  console.log(synchronizedProducts)
   return synchronizedProducts
 }
