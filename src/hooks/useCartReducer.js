@@ -16,5 +16,7 @@ export function useCartReducer () {
 
   const clearCart = () => dispatch({ type: CART_ACTION_TYPES.CLEAR_CART })
 
-  return { state, addToCart, reduceQuantity, clearCart }
+  const removeProducts = () => dispatch({ type: CART_ACTION_TYPES.REMOVE_PRODUCTS })
+
+  return { state, addToCart, reduceQuantity, clearCart, removeProducts }
 }

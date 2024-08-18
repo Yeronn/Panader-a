@@ -13,6 +13,7 @@ import SeasonalProductCatalog from './src/components/SeasonalProductCatalog'
 import BreadCatalog from './src/components/BreadCatalog'
 import DessertsCatalog from './src/components/DessertsCatalog.jsx'
 import CakeCatalog from './src/components/CakeCatalog.jsx'
+import FinalMessage from './src/components/FinalMessage.jsx'
 
 export default function App () {
   const { showMenu, hanldeShowMenu, hanldeShowCart, showCart } = useInterface()
@@ -26,7 +27,7 @@ export default function App () {
               <Header hanldeShowMenu={hanldeShowMenu} hanldeShowCart={hanldeShowCart} />
               {showMenu && <Menu hanldeShowMenu={hanldeShowMenu} />}
               <CartProvider>
-                {showCart && <Cart products={productsList} />}
+                {showCart && <Cart products={productsList} hanldeShowCart={hanldeShowCart} />}
                 {!showCart &&
                   <main>
                     <Outlet />
@@ -44,6 +45,7 @@ export default function App () {
           <Route path='/productos/tortas' element={<CakeCatalog />} />
           <Route path='/productos/temporada/navidad' element={<SeasonalProductCatalog />} />
           <Route path='/productos/temporada/halloween' element={<SeasonalProductCatalog />} />
+          <Route path='/productos/comprados' element={<FinalMessage hanldeShowCart={hanldeShowCart} />} />
 
         </Route>
       </Routes>

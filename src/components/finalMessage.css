@@ -1,0 +1,22 @@
+.final-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 364px;
+  height: 400px;
+  padding: 40px 40px;
+  margin: auto;
+  border-radius: 16px;
+  border: 1px solid #B07C30;
+  background: rgba(255, 237, 175, 0.24);
+}
+
+.final-message > h1 {
+  text-align: center;
+}
+
+.final-message > p {
+  padding: 15px;
+  background: rgba(176, 124, 48, 0.60);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
