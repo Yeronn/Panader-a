@@ -29,7 +29,7 @@ export default function ProductCatalog ({ catalogTitle, specialProducts }) {
           ))
         }
       </ul>
-      {showProductModalCard && <ProductCardModal {...productModalCardInfo} closeProductModalCard={closeProductModalCard} />}
+      {showProductModalCard && <ProductCardModal product={productModalCardInfo} closeProductModalCard={closeProductModalCard} />}
     </div>
   )
 }

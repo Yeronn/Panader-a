@@ -20,7 +20,7 @@ export default function DessertsCatalog () {
       </div>
       <div className='inverted-product-cards'>
         {filteredProducts.map((product, index) => (
-          <InvertedCard key={product.id} {...product} position={index % 2 === 0 ? 'invert' : ''} />
+          <InvertedCard key={product.id} product={product} position={index % 2 === 0 ? 'invert' : ''} />
         ))}
       </div>
     </section>

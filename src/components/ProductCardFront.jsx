@@ -1,10 +1,12 @@
 import './productCardFront.css'
 import AmountController from './AmountController'
 import { useProductCard } from '../hooks/useProductCard'
+import { useCart } from '../hooks/useCart'
 
-export default function ProductCardFront ({ name, description, imgURL, stock, price }) {
+export default function ProductCardFront ({ product }) {
+  const { name, imgURL, stock, price } = product
   const { amountProduct, addAmount, handleCheckAmount, subtractAmount, totalProduct } = useProductCard({ price, stock })
-
+  const { addToCart } = useCart()
   return (
     <article className='product-card-front'>
       <img src={imgURL} alt={name} />
@@ -14,7 +16,7 @@ export default function ProductCardFront ({ name, description, imgURL, stock, pr
         <span>Stock: {stock}</span>
         <AmountController amountProduct={amountProduct} handleCheckAmount={handleCheckAmount} addAmount={addAmount} subtractAmount={subtractAmount} />
         <span>Total: ${totalProduct}</span>
-        <button>Comprar</button>
+        <button onClick={() => addToCart({ ...product, amount: amountProduct })}>Comprar</button>
       </div>
     </article>
   )

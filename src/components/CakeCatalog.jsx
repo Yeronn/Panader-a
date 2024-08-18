@@ -9,7 +9,7 @@ export default function CakeCatalog () {
   return (
     <section className='cake-catalog'>
       {filteredProducts.map(product => (
-        <ProductCardFront key={product.id} {...product} />
+        <ProductCardFront key={product.id} product={product} />
       ))}
     </section>
   )
