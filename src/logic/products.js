@@ -14,11 +14,10 @@ export const filterAndSortProductsByDate = ({ products, quantity }) => {
 export const syncProductsWithCart = ({ products, cart }) => {
   const synchronizedProducts = products.map(productToSynchronize => {
     const cartProduct = cart.find(item => item.id === productToSynchronize.id)
-
     if (cartProduct) {
       return {
         ...productToSynchronize,
-        stock: cartProduct.stock
+        stock: productToSynchronize.stock - cartProduct.amountInCart
       }
     }
     return productToSynchronize

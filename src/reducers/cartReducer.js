@@ -1,11 +1,10 @@
-import productsServices from '../services/productsServices'
+// import productsServices from '../services/productsServices'
 export const cartInitialState = JSON.parse(window.localStorage.getItem('cart')) || []
 
 export const CART_ACTION_TYPES = {
   ADD_TO_CART: 'ADD_TO_CART',
   REDUCE_QUANTITY: 'REDUCE_QUANTITY',
-  CLEAR_CART: 'CLEAR_CART',
-  REMOVE_PRODUCTS: 'REMOVE_PRODUCTS'
+  CLEAR_CART: 'CLEAR_CART'
 }
 
 export const updateLocalStorage = state => {
@@ -37,7 +36,7 @@ const UPDATE_STATE_BY_ACTION = {
       ]
 
       updateLocalStorage(newState)
-      productsServices.updateProduct(updatedProduct)
+      // productsServices.updateProduct(updatedProduct)
       return newState
     }
 
@@ -46,7 +45,7 @@ const UPDATE_STATE_BY_ACTION = {
       { ...updatedProduct, amountInCart: amount }
     ]
 
-    productsServices.updateProduct(updatedProduct)
+    // productsServices.updateProduct(updatedProduct)
     updateLocalStorage(newState)
     return newState
   },
@@ -65,7 +64,7 @@ const UPDATE_STATE_BY_ACTION = {
       stock: product.stock + amount
     }
 
-    productsServices.updateProduct(updatedProduct)
+    // productsServices.updateProduct(updatedProduct)
 
     if (amountInCart - amount <= 0) {
       const newState = state.filter(item => item.id !== id)
@@ -81,18 +80,7 @@ const UPDATE_STATE_BY_ACTION = {
     updateLocalStorage(newState)
     return newState
   },
-  [CART_ACTION_TYPES.CLEAR_CART]: (state, action) => {
-    const newState = state.map(product => {
-      const { amountInCart, ...resetProduct } = product
-      return { ...resetProduct, stock: product.stock + amountInCart }
-    })
-    newState.forEach(product => {
-      productsServices.updateProduct(product)
-    })
-    updateLocalStorage([])
-    return []
-  },
-  [CART_ACTION_TYPES.REMOVE_PRODUCTS]: () => {
+  [CART_ACTION_TYPES.CLEAR_CART]: () => {
     updateLocalStorage([])
     return []
   }

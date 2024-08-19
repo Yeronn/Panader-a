@@ -6,7 +6,7 @@ import productsServices from '../services/productsServices'
 import { useNavigate } from 'react-router-dom'
 
 export default function Cart ({ hanldeShowCart }) {
-  const { cart, clearCart, removeProducts } = useCart()
+  const { cart, clearCart } = useCart()
   const [totalCart, setTotalCart] = useState(0)
   const navigate = useNavigate()
 
@@ -23,12 +23,13 @@ export default function Cart ({ hanldeShowCart }) {
       console.log('No puede comprar nada porque el carrito se encuentra vacio')
       return
     }
+    const boughtProducts = []
     cart.forEach(item => {
-      const { amountInCart, ...productBeingPurchased } = item
-      productBeingPurchased.sold = productBeingPurchased.sold + amountInCart
-      productsServices.updateProduct(productBeingPurchased)
+      const { id, amountInCart } = item
+      boughtProducts.push({ id, amount: amountInCart })
     })
-    removeProducts()
+    productsServices.buyProducts(boughtProducts)
+    clearCart()
     hanldeShowCart(false)
     navigate('/productos/comprados')
   }

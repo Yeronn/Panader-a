@@ -1,6 +1,10 @@
 import { productsList } from '../mocks/products.json'
 
-let products = [...productsList]
+let products = JSON.parse(window.localStorage.getItem('products')) || [...productsList]
+
+const updateLocalStorage = state => {
+  window.localStorage.setItem('products', JSON.stringify(state))
+}
 
 const getProductByCategory = (category) => {
   const productsByCategory = products.filter((product) => product.category === category || category === 'all')
@@ -50,19 +54,28 @@ const updateProduct = (updatedProduct) => {
   )
 }
 
-const buyProduct = (id, amount) => {
-  if (amount <= 0) return
-  const boughtProduct = products.find(product => (product.id === id))
-  if (boughtProduct && boughtProduct.stock >= amount) {
-    boughtProduct.stock = boughtProduct.stock - amount
-    boughtProduct.sold = boughtProduct.sold + amount
-    products = products.filter(product => product.id !== id)
-    products = [...products, boughtProduct]
-    return true
-  } else {
-    console.log('el producto no existe')
-    return false
+const buyProducts = (boughtProducts) => {
+  if (!boughtProducts) {
+    console.log('Estas enviando un carrito vacio')
+    return
   }
+  boughtProducts.forEach(item => {
+    const { id, amount } = item
+    if (amount <= 0) {
+      console.log('La cantidad de producto es invalida')
+      return
+    }
+    const boughtProduct = products.find(product => (product.id === id))
+    if (boughtProduct && boughtProduct.stock >= amount) {
+      boughtProduct.stock = boughtProduct.stock - amount
+      boughtProduct.sold = boughtProduct.sold + amount
+      updateLocalStorage(products)
+      return true
+    } else {
+      console.log('el producto no existe')
+      return false
+    }
+  })
 }
 
 export default {
@@ -72,5 +85,5 @@ export default {
   getCategories,
   getCategoryByName,
   updateProduct,
-  buyProduct
+  buyProducts
 }
